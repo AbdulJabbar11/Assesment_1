@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using Assesment_1.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Assesment_1.Models;
 
 namespace Assesment_1
 {
@@ -38,6 +39,11 @@ namespace Assesment_1
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddDbContext<Asses_1Context>(options =>
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("mycs")));
+
             services.AddDefaultIdentity<IdentityUser>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
